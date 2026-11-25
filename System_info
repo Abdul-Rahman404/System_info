@@ -1,0 +1,26 @@
+#!/bin/bash
+
+while getopts "hnwi" opt; do
+  case $opt in
+    h)
+      echo "Usage: $0 [options]"
+      echo "  -h   show this help"
+      echo "  -n   show the host name"
+      echo "  -w   show who is logged in"
+      echo "  -i   show IP and network info"
+      ;;
+    n)
+      hostname
+      ;;
+    w)
+      whoami
+      ;;
+    i)
+      ifconfig
+      ;;
+    *)
+      echo "Invalid option. Use -h for help."
+      exit 1
+      ;;
+  esac
+done
